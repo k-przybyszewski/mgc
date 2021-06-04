@@ -1,0 +1,24 @@
+<form action="{{ path('client_login_check') }}" method="post" novalidate>
+    <div class="userBox">
+        <span>{{ 'Login'|trans }}</span>
+        <span>/</span>
+        <a href="{{ path('client_resetting_request') }}">{{ 'Password recovery'|trans }} &rarr;</a>
+        <a href="{{ path('client_register') }}">{{ 'Create account'|trans }} &rarr;</a>
+        
+        <div class="inputBox">
+            <div class="inputEmailLeft"></div>
+            {% set usernamePlaceholder = 'email address'|trans %}
+            {{ form_widget(form._username, {'attr': {'placeholder' : usernamePlaceholder, 'class': 'inp'}}) }}
+            <div class="inputRight"></div>
+        </div>
+        
+        <div class="inputBox">
+            <div class="inputPasswordLeft"></div>
+            {% set passwordPleaceholder = 'password'|trans %}
+            {{ form_widget(form._password, {'attr': {'placeholder' : passwordPleaceholder, 'class': 'inp'}}) }}
+            <div class="inputRight"></div>
+        </div>
+        <input type="submit" id="_submit" class="button" name="_submit" value="{{ 'ok'|trans }}" />
+    </div>
+    {{ form_rest(form) }}
+</form>

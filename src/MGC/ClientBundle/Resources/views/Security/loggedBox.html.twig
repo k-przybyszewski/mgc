@@ -1,0 +1,13 @@
+<div class="userBox client">
+    <img src="" alt="{{ 'User avatar'|trans }}"/>
+    <div class="userMenu">
+        <span>{{ 'Hello' }}, <strong>{{ app.user.email }}</strong></span>
+        <a href="{{ path('client_logout') }}" class="fright">{{ 'Logout'|trans }} &rarr;</a>
+        <div class="menu">
+            <a href="" class="gray-button">{{ 'Account'|trans }}</a>
+            <a href="" class="gray-button">{{ 'Orders'|trans }}</a>
+            <a href="" class="gray-button">{{ 'Servers'|trans }}</a>
+            <a href="" class="gray-button">{{ 'Wallet'|trans }}</a>
+        </div>
+    </div>
+</div>

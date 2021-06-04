@@ -1,0 +1,12 @@
+<div class="bannersWrappper">
+    <div class="promotions">
+        <ul class="promo">
+                {% for promo in promos %}
+                    {{ render(controller('MGCAdminBundle:Promo:render', {'promo': promo})) }}
+                {% endfor %}
+        </ul>
+        <div class="progressBackground">
+            <div class="progress"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="gameBox">
+    <div class="logo" style="background: url({% if not game.banner %}{{ asset('/images/logo.png') }}{% else %}{{ asset(game.banner.webPath) }}{% endif %}) no-repeat;"></div>
+    <div class="game">
+        <p class="demi">{{ game.name }}</p>
+        <div class="price demi">{{ game.bestPrice | currency_convert_format(app.session.get('_currency', 'EUR')) }}<span>/slot</span></div>
+        <div class="grayWrapper">
+            <a href="" class="gray-button centerBox">{{ 'Order'|trans }} &rarr;</a>
+        </div>
+    </div>
+</div>

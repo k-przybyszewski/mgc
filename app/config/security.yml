@@ -1,0 +1,57 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+    
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        admin:
+            context:            admin
+            switch_user:        true
+            pattern:            ^/admin/*
+            access_denied_handler: kernel.listener.access_denied.handler
+            form_login:
+                provider:       fos_userbundle
+                csrf_provider:  form.csrf_provider
+                login_path:     /admin/login
+                use_forward:    false
+                check_path:     /admin/login_check
+                failure_path:   null
+                use_referer:    true
+                always_use_default_target_path: true
+                default_target_path: /admin/
+            logout:
+                path:           /admin/logout
+                target:         /admin/login
+            anonymous:    true
+        client:
+            context:            client
+            switch_user:        true
+            pattern:            ^/*
+            access_denied_handler: kernel.listener.access_denied.handler
+            form_login:
+                provider:       fos_userbundle
+                csrf_provider:  form.csrf_provider
+                login_path:     /client/login
+                use_forward:    false
+                check_path:     /client/login_check
+                failure_path:   null
+                use_referer:    true
+                always_use_default_target_path: true
+                default_target_path: /client/
+            logout:
+                path:           /client/logout
+                target:         /client/login
+            anonymous:    true
+
+    access_control:
+        - { path: ^/admin/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/client/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/client/logout, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/client/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/client/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/*, role: ROLE_ADMIN }
+        - { path: ^/client/*, role: ROLE_CLIENT }

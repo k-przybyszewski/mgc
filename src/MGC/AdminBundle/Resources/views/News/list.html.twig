@@ -1,0 +1,46 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-create">{{ 'News'|trans({}, 'admin') }}</span>
+        <a href="{{ path('admin_news_new') }}" class="aright small mws-button orange">{{ 'Add new'|trans({}, 'admin') }}</a>
+    </div>
+    <div class="mws-panel-body">
+        <table class="mws-table">
+            <thead>
+                <tr>
+                    <th>{{ 'Title'|trans }}</th>
+                    <th>{{ 'Category'|trans }}</th>
+                    <th>{{ 'Publication date'|trans }}</th>
+                    <th></th>
+                    <th>{{ 'Created'|trans }}</th>
+                    <th width="100"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for n in news %}
+                    <tr>
+                        <td>{{ n.title }}</td>
+                        <td>{{ n.category }}</td>
+                        <td>{{ n.publicationDate|date('Y-m-d H:i:s') }}</td>
+                        <td>
+                            {% if n.published %}
+                                {{ 'Published'|trans }}
+                            {% endif %}
+                        </td>
+                        <td>{{ n.createdAt|date('Y-m-d H:i:s') }}</td>
+                        <td>
+                            <a href="{{ path('admin_news_edit', {'id': n.id}) }}" class="mws-button small blue">{{ 'Edit'|trans({}, 'admin') }}</a>
+                            <a href="{{ path('admin_news_delete', {'id': n.id}) }}" class="mws-button small red">{{ 'Delete'|trans({}, 'admin') }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if news.haveToPaginate %}
+            {{ pagerfanta(news, 'twitter_bootstrap_translated') }}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div id="header">
+    <div class="leftBox"></div>
+    <div id="siteHeader">
+        <div class="shadowLocker"></div>
+        <div class="whiteWrapper">
+            <a href="{{ path('home_page') }}" class="homeLogo" title="{% trans %}Home Page"{% endtrans %}></a>
+            {{ render(controller('MGCPortalBundle:Index:currencyAndLanguage', {request: app.request})) }}
+            {% if not is_granted('ROLE_CLIENT') and app.user is null %}
+                {{ render(controller('MGCClientBundle:Client:loginBox')) }}
+            {% else %}
+                {% include 'MGCClientBundle:Security:loggedBox.html.twig' %}
+            {% endif %}
+            <div class="siteMenu absolute">
+                {{ render(controller('MGCPortalBundle:Page:menu')) }}
+            </div>
+			{% block promo %}{% endblock %}
+            <div class="social">
+                <div class="promoText">{% trans %}Do you like our website? - Recommend us to your friends!{% endtrans %}</div>
+                <div class="addthis">
+                    social
+                </div>
+            </div>
+        </div>
+        <div class="serverLocations">
+            <div class="headClip">
+                <div class="head">
+                    <div>{% trans %}Our server <span class="demi">locations</span>{% endtrans %}</div>
+                    <div class="locations">
+{#                         <label for="sLocations">{% trans %}Select{% endtrans %}</label>#}
+{#                         <select name="sLocations" id="sLocations">#}
+{#                             {% for key, location in sLocations %}#}
+{#                                 <option value="{{ sLocations[key].countryCode }}" data-image="{{ asset('/images/flags/') }}{{ sLocations[key].flag }}">{{ sLocations[key].city }} ({{ sLocations[key].country }})</option>#}
+{#                             {% endfor %}#}
+{#                         </select>#}
+                    </div>
+                    <div>{% trans %}Why <span class="demi">we?</span>{% endtrans %}</div>
+                </div>
+            </div>
+            <div class="clip">
+                <div class="wrapper">
+                    {{ render(controller('MGCAdminBundle:DedicatedServers:viewMap')) }}
+                    {% include 'MGCPortalBundle:Index:_whyWe.html.twig' with {'class': 'column'} %}
+                </div>
+            </div>
+            <a href="#" class="more open" data-opentext="{% trans %}See what else we can offer{% endtrans %} &rarr;" data-closetext="{% trans %}Show server locations{% endtrans %} &rarr;">{% trans %}See what else we can offer{% endtrans %} &rarr;</a>
+        </div>
+    </div>
+    <div class="rightGameLogo home"></div>
+    {% block buttons %}{% endblock %}
+</div>
+<div class="page home">
+    {% block content %}{% endblock %}
+</div>
+{% endblock %}

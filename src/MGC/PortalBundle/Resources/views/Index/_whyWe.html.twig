@@ -1,0 +1,54 @@
+<ul class="whywe {% if class is defined %}{{ class }}{% endif %}">
+    <li class="prices">
+        <p>{% trans %}Attractive prices{% endtrans %}</p>
+        <span>
+            {% trans %}Frequent promotions, cheap servers in all locations, nowhere else will you find such low prices!{% endtrans %}
+        </span>
+    </li>
+    <li class="cloud">
+        <p>{% trans %}One of the largest gaming networks{% endtrans %}</p>
+        <span>
+            {% trans %}We have servers for many popular games - with us you will certainly find what you are looking for! Low pings because of the many possible locations.{% endtrans %}
+        </span>
+    </li>
+    <li class="support">
+        <p>{% trans %}Support{% endtrans %} 24/7</p>
+        <span>
+            {% trans %}Our consultants are experienced individuals that help our customers seven days a week, twenty-four hours a day.{% endtrans %}
+        </span>
+    </li>
+{% if page is defined %}
+</ul>
+{% else %}
+    <li class="pin">
+        <p>{% trans %}Easy server management with our custom Control Panel!{% endtrans %}</p>
+        <span>
+            {% trans %}Server management is very intuitive. The customer does not have to look for the required options.{% endtrans %}
+        </span>
+    </li>
+    <li class="ok">
+        <p>{% trans %}Guaranteed Satisfaction{% endtrans %}</p>
+        <span>
+            {% trans %}We are always when you need us! Your favorite games will be even more rewarding.{% endtrans %}
+        </span>
+    </li>
+    <li class="prices">
+        <p>{% trans %}Share payments via many providers e.g. PayPal{% endtrans %}</p>
+        <span>
+            {% trans %}Transactions are handled automatically. Completed orders are just a few minutes.{% endtrans %}
+        </span>
+    </li>
+    <li class="bulb">
+        <p>{% trans %}Switch locations any time!{% endtrans %}</p>
+        <span>
+            {% trans %}If you want to change the location of your server, nothing stands in the way - just a few clicks, and your server is on the other side of the world.{% endtrans %}
+        </span>
+    </li>
+    <li class="msg">
+        <p>{% trans %}Powerful affiliate system{% endtrans %}</p>
+        <span>
+            {% trans %}Do you want to sell the game servers on your website? - Please notify our customer service, and we will work together.{% endtrans %}
+        </span>
+    </li>
+</ul>
+{% endif %}

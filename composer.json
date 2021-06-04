@@ -1,0 +1,66 @@
+{
+	"name" : "symfony/framework-standard-edition",
+	"description" : "The \"Symfony Standard Edition\" distribution",
+	"type" : "project",
+	"license" : [
+		"MIT"
+	],
+	"require" : {
+		"white-october/pagerfanta-bundle" : "dev-master",
+		"symfony/symfony" : "2.3.*",
+		"doctrine/doctrine-fixtures-bundle" : "dev-master",
+		"doctrine/doctrine-migrations-bundle" : "dev-master",
+		"gedmo/doctrine-extensions" : "dev-master",
+		"friendsofsymfony/user-bundle" : "2.0.*@dev",
+		"symfony/swiftmailer-bundle" : "2.3.*",
+		"doctrine/orm" : ">=2.2.3,<2.5-dev",
+		"stof/doctrine-extensions-bundle" : "dev-master",
+		"symfony/assetic-bundle" : "2.3.*",
+		"doctrine/migrations" : "dev-master",
+		"incenteev/composer-parameter-handler" : "~2.0",
+		"twig/extensions" : "1.0.*",
+		"lexik/currency-bundle" : "dev-master",
+		"php" : ">=5.3.3",
+		"sensio/generator-bundle" : "2.3.*",
+		"gregwar/captcha-bundle" : "dev-master",
+		"symfony/monolog-bundle" : "2.3.*",
+		"sensio/framework-extra-bundle" : "2.3.*",
+		"sensio/distribution-bundle" : "2.3.*",
+		"doctrine/doctrine-bundle" : "1.2.*"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"" : "src/"
+		}
+	},
+	"minimum-stability" : "stable",
+	"config" : {
+		"bin-dir" : "bin"
+	},
+	"scripts" : {
+		"post-update-cmd" : [
+			"Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+		],
+		"post-install-cmd" : [
+			"Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+			"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+		]
+	},
+	"extra" : {
+		"branch-alias" : {
+			"dev-master" : "2.3-dev"
+		},
+		"symfony-web-dir" : "web",
+		"symfony-app-dir" : "app",
+		"incenteev-parameters" : {
+			"file" : "app/config/parameters.yml"
+		}
+	}
+}

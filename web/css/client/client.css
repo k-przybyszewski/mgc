@@ -1,0 +1,83 @@
+.page.client {
+	padding: 20px 25px;
+}
+
+.userBox img {
+	display: block;
+	width: 60px;
+	height: 60px;
+	float: left;
+}
+
+.userBox.client a {
+	margin-right: 0;
+}
+
+.userBox .userMenu {
+	float: left;
+	width: 269px;
+	padding: 0 0 0 15px;
+	margin: 3px 0 0 0;
+}
+
+.userBox .userMenu a {
+	font-size: 12px;
+}
+
+.userBox .userMenu a:hover {
+	text-decoration: none;
+}
+
+.userBox .userMenu .menu a {
+	color: #000;
+	margin: 0 5px 0 0;
+}
+
+.userBox .userMenu .menu a:last-child {
+	margin: 0;
+}
+
+.userBox .userMenu .menu {
+	width: 100%;
+	float: left;
+	margin: 10px 0 0 0;
+}
+
+fieldset {
+	width: 60%;
+	margin: 0 auto;
+	border: 0;
+}
+
+fieldset .form-row {
+	float: left;
+	width: 100%;
+	margin: 0 0 5px 0;
+}
+
+fieldset label:not([for=_remember_me]) {
+	display: block;
+	width: 100%;
+}
+
+fieldset .form-row ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+fieldset .form-row ul li {
+	color: red;
+}
+
+fieldset input[type=text],
+fieldset input[type=password],
+fieldset input[type=email],
+fieldset textarea {
+	width: 80%;
+}
+
+fieldset.form-footer {
+	padding: 10px 0;
+	border-top: 1px solid #C3C3C3;
+}

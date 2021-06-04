@@ -1,0 +1,17 @@
+{% extends "::layout.html.twig" %}
+
+{% block subpage %}
+    {{ 'Password resetting'|trans }}
+{% endblock %}
+
+{% block breadcrumb %}
+	<li><a href="{{ path('client_home') }}">{{ 'Client'|trans }}</a></li>
+	<li class="sep">/</li>
+	<li>{{ 'Password resetting'|trans }}</li>
+{% endblock %}
+
+{% block subtitle %}{% endblock %}
+
+{% block content %}
+    {% include "MGCClientBundle:Resetting:reset_content.html.twig" %}
+{% endblock content %}

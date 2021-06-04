@@ -1,0 +1,93 @@
+table.games {
+	width: 100%;
+	border-collapse:collapse;
+	margin: 20px 0 0 0;
+}
+
+table.games th {
+	font-size: 14px;
+	height: 40px;
+	border-top: 1px solid #d4d4d4;
+	border-bottom: 1px solid #d4d4d4;
+	text-align: left;
+}
+
+table.games th .dd {
+	font-weight: normal;
+}
+
+table.games td {
+	font-size: 13px;
+	padding: 8px 0;
+	border-bottom: 1px solid #efefef;
+}
+
+table.games td.price, .gameBox .game .price {
+	color: #5d718c;
+}
+
+table.games td.name {
+	width: 355px;
+}
+
+table.games td.icon {
+	width: 30px;
+}
+
+.gameBox {
+	float: left;
+	width: 130px;
+	height: 215px;
+	background-color: #fff;
+	margin: -10px 15px 15px 0;
+	border-bottom: 1px solid #acacac;
+}
+
+.gameBox:hover,
+.gameBox:hover .game .price,
+.gameBox:hover .game .price span {
+	background-color: #5d718c;
+	color: #fff;
+}
+
+.underheader .gameBox:last-child {
+	margin-right: 0;
+}
+
+.gameBox .logo {
+	float: left;
+	width: 100%;
+	height: 55px;
+	text-align: center;
+	padding: 20px 0 0 0;
+}
+
+.gameBox .game {
+	float: left;
+	padding: 10px 20px;
+	width: 90px;
+}
+
+.gameBox .game p {
+	margin: 0;
+	font-size: 16px;
+	height: 55px;
+}
+
+.gameBox .game .price {
+	float: left;
+	font-size: 20px;
+	margin: 0 0 10px 0;
+	width: 100%;
+}
+
+.gameBox .game .price span {
+	font-size: 14px;
+	color: #c2ccda;
+}
+
+.grayWrapper {
+	float: left;
+	width: 100%;
+	text-align: center;
+}

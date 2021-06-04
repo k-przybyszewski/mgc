@@ -1,0 +1,44 @@
+{% extends '::layout.html.twig' %}
+
+{% block subpage %}
+    {{ 'Client Register'|trans }}
+{% endblock %}
+
+{% block subtitle %}{% endblock %}
+
+{% block breadcrumb %}
+    <li>{{ 'Client register'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+<section class="register">
+    <form method="post" novalidate>
+        <fieldset>
+            <div class="form-row">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+                {{ form_errors(form.email) }}
+            </div>
+            <div class="form-row">
+                {{ form_label(form.plainPassword.first) }}
+                {{ form_widget(form.plainPassword.first) }}
+                {{ form_errors(form.plainPassword.first) }}
+            </div>
+            <div class="form-row">
+                {{ form_label(form.plainPassword.second) }}
+                {{ form_widget(form.plainPassword.second) }}
+                {{ form_errors(form.plainPassword.second) }}
+            </div>
+            <div class="form-row">
+                {{ form_label(form.captcha) }}
+                {{ form_widget(form.captcha) }}
+                {{ form_errors(form.captcha) }}
+            </div>
+        </fieldset>
+        <fieldset class="form-footer">
+            <input type="submit" class="gray-button fright" value="{{ 'Register'|trans }}">
+        </fieldset>
+        {{ form_rest(form) }}
+    </form>
+</section>
+{% endblock %}

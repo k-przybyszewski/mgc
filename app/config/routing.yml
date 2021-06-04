@@ -1,0 +1,85 @@
+mgc_client:
+    resource: "@MGCClientBundle/Controller/"
+    type:     annotation
+    prefix:   /client/
+
+mgc_admin:
+    resource: "@MGCAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+mgc_portal:
+    resource: "@MGCPortalBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    
+fos_user_security_login_check:
+    pattern:   /login_check
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+    
+MGCAdminBundle:
+    resource: "@MGCAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+    
+admin_login:
+    pattern:   /admin/login
+    defaults:  { _controller: MGCAdminBundle:Security:login }
+    
+admin_login_check:
+    pattern:   /admin/login_check
+    defaults:  { _controller: MGCAdminBundle:Security:check }
+    
+admin_logout:
+    pattern:   /admin/logout
+    defaults:  { _controller: MGCAdminBundle:Security:logout }
+    
+client_login:
+    pattern:   /client/login
+    defaults:  { _controller: MGCClientBundle:Security:login }
+    
+client_login_check:
+    pattern:   /client/login_check
+    defaults:  { _controller: MGCClientBundle:Security:check }
+    
+client_logout:
+    pattern:   /client/logout
+    defaults:  { _controller: MGCClientBundle:Security:logout }
+    
+client_resetting_request:
+    pattern:   /client/resetting/request
+    defaults:  { _controller: MGCClientBundle:Resetting:request }
+
+client_resetting_send_email:
+    pattern:   /client/resetting/send-email
+    defaults:  { _controller: MGCClientBundle:Resetting:sendEmail }
+
+client_resetting_reset:
+    pattern:  /client/resetting/reset/{token}
+    defaults:  { _controller: MGCClientBundle:Resetting:reset }
+
+client_resetting_confirm:
+    pattern:   /client/resetting/confirm/{token}
+    defaults:  { _controller: MGCClientBundle:Resetting:setPassword }
+    
+fos_user_security_login:
+    pattern: /login
+    defaults:  { _controller: MGCPortalBundle:Index:index }

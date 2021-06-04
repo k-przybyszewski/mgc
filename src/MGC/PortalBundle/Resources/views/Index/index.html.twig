@@ -1,0 +1,43 @@
+{% extends '::layoutHome.html.twig' %}
+{% block buttons %}
+	{% include 'MGCPortalBundle:Index:_promoButtons.html.twig' %}
+{% endblock %}
+{% block promo %}
+	{{ render(controller('MGCPortalBundle:Index:promo')) }}
+{% endblock %}
+{% block content %}
+<div class="news">
+    <h1>{% trans %}Updates and news in{% endtrans %} <span>MaxGamedCloud.com</span></h1>
+    <ul class="newsList">
+        {% for n in news %}
+        <li>
+            <div class="left">
+                <div class="image">
+                    <div class="categoryLogo" style="background: url({% if n.category.logo %}{{ asset(n.category.logo.webpath) }}) }}{% endif %}) no-repeat;"></div>
+                </div>
+                <a href="{{ path('portal_news_read', {'id': n.id}) }}">{{ n.title }}</a>
+                <div class="date">{{ n.createdAt|date('d.m.Y') }}</div>
+            </div>
+            <div class="newsContent">
+                {% if n.content|length > 250 %}
+                    {{ n.content|slice(0, 250)|raw }}...
+                {% else %}
+                    {{ n.content|raw }}
+                {% endif %}
+            </div>
+            <div class="moreWrapper">
+                <a href="{{ path('portal_news_read', {'id': n.id}) }}">{{ 'read more'|trans }} &rarr;</a>
+            </div>
+        </li>
+        {% endfor %}
+        {% if news.nbResults == 0 %}
+            <li>{{ 'There is no records at this moment'|trans }}</li>
+        {% endif %}
+    </ul>
+    <div class="clearfix"></div>
+    {% if news.haveToPaginate  %}
+        {{ pagerfanta(news, 'twitter_bootstrap_translated') }}
+    {% endif %}
+</div>
+{% include 'MGCPortalBundle:Index:_facebook.html.twig' %}
+{% endblock %}

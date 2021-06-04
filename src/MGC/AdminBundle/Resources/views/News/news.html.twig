@@ -1,0 +1,76 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_6">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-list">{{ 'News'|trans({}, 'admin') }}</span>
+    </div>
+    <div class="mws-panel-body">
+        <form class="mws-form" method="post" {{ form_enctype(form) }} novalidate="novalidate">
+            <div class="mws-form-inline">
+                {% if news %}
+                    <div class="mws-form-row fright">
+                        {{ 'Language:' }}
+                        <a href="{{ path('admin_news_edit', {'id': news.id, 'locale': 'en_US'}) }}" class="mws-button blue small">{{ 'English'|trans }}</a>
+                        <a href="{{ path('admin_news_edit', {'id': news.id, 'locale': 'pl_PL'}) }}" class="mws-button blue small">{{ 'Polish'|trans }}</a>
+                    </div>
+                {% endif %}
+                <div class="mws-form-row">
+                    {{ form_label(form.title) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.title, {'attr': {'class': 'mws-textinput'}}) }}
+                        {% if form_errors(form.title) %}
+    						<div class="mws-error">
+    						    {{ form_errors(form.title) }}
+    						</div>
+						{% endif %}
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    {{ form_label(form.category) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.category, {'attr': {'class': 'mws-textinput chosen-select'}}) }}
+                        {% if form_errors(form.category) %}
+    						<div class="mws-error">
+    						    {{ form_errors(form.category) }}
+    						</div>
+						{% endif %}
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    {{ form_label(form.content) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.content, {'attr': {'class': 'mws-textinput tinymce'}}) }}
+                        {% if form_errors(form.content) %}
+    						<div class="mws-error">
+    						    {{ form_errors(form.content) }}
+    						</div>
+						{% endif %}
+                    </div>
+                </div>
+	            <div class="mws-form-row">
+	                {{ form_label(form.publicationDate) }}
+	                <div class="mws-form-item small">
+	                    {{ form_widget(form.publicationDate, {'attr': {'class': 'mws-textinput mws-dtpicker', 'readonly': 'readonly'}}) }}
+	                    {% if form_errors(form.publicationDate) %}
+    						<div class="mws-error">
+    						    {{ form_errors(form.publicationDate) }}
+    						</div>
+						{% endif %}
+	                </div>
+	            </div>
+                <div class="mws-form-row">
+                    {{ form_label(form.published) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.published) }}
+                    </div>
+                </div>
+            {{ form_rest(form) }}
+            <div class="mws-button-row">
+                <a href="{{ path('admin_news_list') }}" class="mws-button gray">{{ 'Cancel'|trans }}</a>
+            	<input type="submit" value="Save" class="mws-button red">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

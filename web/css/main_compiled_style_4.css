@@ -1,0 +1,311 @@
+.bannersWrappper {
+    position: relative;
+    float: left;
+    width: 1002px;
+    height: 275px;
+    border-right: 8px solid #5d718c;
+}
+
+.bannersWrappper .promotions {
+    float: left;
+    width: 100%;
+    height: 275px;
+    position: relative;
+    overflow: hidden;
+}
+
+ul.promo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style: none;
+    height: 275px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.bannersWrappper .progressBackground {
+    position: absolute;
+    width: 956px;
+    height: 1px;
+    background-color: #000;
+    bottom: 22px;
+    left: 22px;
+    padding: 2px;
+}
+
+.bannersWrappper .progress {
+    float: left;
+    background-color: #4a96a4;
+    height: 1px;
+    width: 0px;
+}
+
+.serverLocations {
+    float: left;
+    width: 1010px;
+    height: 475px;
+}
+
+.serverLocations .clip {
+    width: 990px;
+    float: left;
+    margin: 0 0 0 20px;
+    overflow: hidden;
+}
+
+.serverLocations .wrapper {
+    float: left;
+    width: 1672px;
+    height: 370px;
+    overflow: hidden;
+}
+
+.serverLocations .headClip {
+    float: left;
+    width: 990px;
+    height: 66px;
+    margin: 0 0 0 20px;
+    position: relative;
+    border-bottom: 1px solid #2e334d;
+}
+
+.serverLocations .head {
+    float: left;
+    width: 990px;
+    height: 65px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.serverLocations .head > div {
+    height: 65px;
+    line-height: 65px;
+    font-size: 22px;
+}
+
+.serverLocations .head > div:first-child {
+    float: left;
+}
+
+.serverLocations .head > div:last-child {
+    float: right;
+    width: 310px;
+}
+
+.serverLocations .head .locations {
+    float: left;
+    line-height: 14px;
+    padding-top: 18px;
+    height: 47px;
+    display: none;
+}
+
+.serverLocations .head .locations label {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.serverLocations .head .locations select {
+    width: 205px;
+}
+
+.serverLocations .map {
+    float: left;
+    width: 625px;
+    height: 355px;
+    margin: 15px 57px 0 0;
+    position: relative;
+}
+
+.serverLocations .map > div.pixel {
+    float: left;
+    height: 12px;
+    width: 12px;
+    margin: 0 1px 1px 0;
+    border-radius: 50%;
+}
+
+.serverLocations .map > div.tooltip {
+    position: absolute;
+    height: 28px;
+    color: #000;
+    display: none;
+}
+
+.serverLocations .map > div.tooltip .center {
+    padding: 0 5px;
+}
+
+.serverLocations .map > div.tooltip .center span {
+    font-weight: bold;
+}
+
+.serverLocations .map > div.tooltip img {
+    margin: 6px 5px 0 0;
+    vertical-align: text-bottom;
+}
+
+
+.serverLocations .map > div.land {
+    background-color: #5d718c;
+}
+
+.serverLocations .map > div.server {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.serverLocations a.more {
+    display: block;
+    float: right;
+    width: 309px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.serverLocations a.more:hover {
+    color: #60bfbf;
+}
+
+.promoButtons {
+    float: left;
+    width: 960px;
+    position: absolute;
+    bottom: -120px;
+    left: 50%;
+    margin-left: -480px;
+    z-index: 100;
+}
+
+.promoButtons .banner {
+    float: left;
+    width: 300px;
+    height: 135px;
+    cursor: pointer;
+}
+
+.promoButtons .ventrilo {
+    background: url(../../images/mediumBanners/ventrilo.png) no-repeat top left;
+}
+
+.promoButtons .bf3 {
+    width: 320px;
+    margin: 0 0 0 20px;
+    background: url(../../images/mediumBanners/bf3.png) no-repeat top left;
+}
+
+.promoButtons .teamspeak {
+    float: right;
+    background: url(../../images/mediumBanners/teamspeak.png) no-repeat top left;
+}
+
+.promoButtons .banner.shadow {
+    -moz-box-shadow: 0 35px 40px -25px #000;
+    -webkit-box-shadow: 0 35px 40px -25px #000;
+    box-shadow: 0 35px 40px -25px #000;
+}
+
+.promoButtons .banner .buttonWrapper {
+    float: right;
+    margin: 80px 60px 0 0;
+}
+
+.page .news {
+    float: left;
+    width: 640px;
+}
+
+.page.home {
+    padding-top: 115px;
+}
+
+.page .facebook {
+    float: right;
+    width: 295px;
+}
+
+.page .news, .page .facebook {
+    margin: 20px 0 0 0;
+}
+
+.news ul.newsList {
+    list-style: none;
+    float: left;
+    padding: 0;
+    width: 640px;
+    margin: 20px 0 0 0;
+}
+
+.news ul.newsList li {
+    float: left;
+    width: 100%;
+    border-bottom: 2px solid #d4d4d4;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.news ul.newsList li:last-child {
+    border: 0px;
+    margin-bottom: 0px;
+}
+
+ul.newsList li .newsContent {
+    float: right;
+    width: 320px;
+    padding: 0 0 40px 20px;
+    font-size: 13px;
+}
+
+ul.newsList li .newsContent p:first-child {
+	margin-top: 0px;
+}
+
+ul.newsList li .left {
+    float: left;
+    width: 280px;
+    margin: 0 0 20px 0;
+}
+
+ul.newsList li .image,
+ul.newsList li .categoryLogo {
+    float: left;
+    width: 85px;
+    height: 85px;
+}
+
+ul.newsList li .left a {
+    float: left;
+    margin: 0 0 0 15px;
+    color: #647791;
+    font-weight: bold;
+    font-size: 13px;
+    width: 180px;
+}
+
+ul.newsList li .date {
+    float: left;
+    margin: 7px 0 0 15px;
+    font-family: "CorporateS Demi";
+    color: #9f9f9f;
+    font-size: 14px;
+}
+
+ul.newsList li .moreWrapper {
+    width: 320px;
+    position: absolute;
+    background-color: #fff;
+    height: 30px;
+    bottom: -1px;
+    padding: 0 0 0 20px;
+    right: 0;
+}
+
+.news a:hover, ul.newsList li .left a:hover {
+    color: #60bfbf;
+}
+
+.news a.all {
+    font-size: 14px;
+}

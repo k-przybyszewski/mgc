@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="mgc_admin.handlers.default">MGC\AdminBundle\Form\Handler\DefaultHandler</parameter>
+        <parameter key="mgc_admin.handlers.registration">MGC\ClientBundle\Form\Handler\RegistrationHandler</parameter>
+        <parameter key="mgc.mailer">MGC\AdminBundle\Mailer\Mailer</parameter>
+        <parameter key="mgc.validator.unique.class">MGC\AdminBundle\Validator\Constraints\UniqueValidator</parameter>
+    </parameters>
+
+    <services>
+        <service id="mgc.handlers.default" class="%mgc_admin.handlers.default%" scope="request">
+            <argument type="service" id="request" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+        
+        <service id="mgc.handlers.registration" class="%mgc_admin.handlers.registration%" scope="request">
+            <argument type="service" id="request" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="fos_user.util.token_generator" />
+            <argument type="service" id="mgc.mailer" />
+        </service>
+        
+	    <service id="mgc.mailer" class="%mgc.mailer%">
+	        <argument type="service" id="doctrine" />
+	        <argument type="service" id="mailer" />
+	        <argument type="service" id="router" />
+	        <argument type="service" id="templating" />
+	        <call method="setContainer">
+	            <argument type="service" id="service_container" />
+	        </call>
+	    </service>
+	    
+        <service id="mgc.validator.unique" class="%mgc.validator.unique.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <tag name="validator.constraint_validator" alias="mgc.validator.unique" />
+        </service>
+    </services>
+
+</container>

@@ -1,0 +1,66 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_8">
+	<div class="mws-panel-header">
+    	<span class="mws-i-24 i-create">{{ 'Game list'|trans({}, 'admin') }}</span>
+    	<a href="{{ path('admin_game_new') }}" class="aright small mws-button orange">{{ 'Add new'|trans({}, 'admin') }}</a>
+    </div>
+    <div class="mws-panel-body">
+		<table class="mws-table">
+			<thead>
+				<tr>
+					<th width="80">{{ 'Icon'|trans }} (20x20)</th>
+					<th>{{ 'Name'|trans }}</th>
+					<th>{{ 'Categories'|trans }}</th>
+					<th width="250">{{ 'Locations'|trans }}</th>
+					<th width="50"></th>
+					<th width="100"></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for game in games %}
+					<tr class="{{ cycle(['odd', 'even'], loop.index) }}">
+						<td>
+					         {% if game.icon != '' %}
+					             <img src="{{ asset(game.icon) }}">
+					         {% endif %}
+						</td>
+						<td>{{ game.name }}</td>
+						<td>
+                            <ul>
+	                            {% for category in game.categories %}
+	                                <li>{{ category.name }}</li>
+	                            {% endfor %}
+                            </ul>
+						</td>
+						<td>
+							{% if game.slotPrices|length > 0 %}
+							<ul class="no-padding no-margin">
+							{% for price in game.slotPrices %}
+								<li><strong>{{ price.server.name }}</strong> - {{ price.server.country }}({{ price.server.city }})<br/>{{ price.price }}&euro; / {{ 'slot'|trans({}, 'admin') }}</li>
+							{% endfor %}
+							</ul>
+							{% else %}
+								<span class="red">{{ 'Not allocated to any servers.'|trans({}, 'admin') }}</span>
+							{% endif %}
+						</td>
+						<td>
+                            {% if game.isPopular %}
+                                {{ 'Popular'|trans }}
+                            {% endif %}
+						</td>
+						<td>
+							<a href="{{ path('admin_game_edit', {'id': game.id}) }}" class="mws-button small blue">{{ 'Edit'|trans({}, 'admin') }}</a>
+							<a href="{{ path('admin_game_delete', {'id': game.id}) }}" class="mws-button small red">{{ 'Delete'|trans({}, 'admin') }}</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% if games.haveToPaginate %}
+			{{ pagerfanta(games, 'twitter_bootstrap_translated') }}
+		{% endif %}
+    </div>
+</div>
+{% endblock %}

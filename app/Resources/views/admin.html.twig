@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}.: MGC24.com - Admin :.{% endblock %}</title>
+        <meta http-equiv="content-language" content="{% block site_language %}en{% endblock %}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/reset.css') }}" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/text.css') }}" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/fonts/ptsans/stylesheet.css') }}" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/fluid.css') }}" media="screen" />
+        
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/core/form.css') }}" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/core/login.css') }}" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/core/button.css') }}" media="screen" />
+        
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/mws.theme.css') }}" media="screen" />
+        {% block stylesheets %}{% endblock %}
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}" />
+        {% block headscripts %}{% endblock %}
+    </head>
+    <body>
+		{% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

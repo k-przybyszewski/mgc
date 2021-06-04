@@ -1,0 +1,32 @@
+<div class="footerWrapper">
+    <div class="footer">
+        <img src="{{ asset('/images/game/gameLogo2.png') }}" class="leftGame" />
+        <img src="{{ asset('/images/game/gameLogo.png') }}" class="rightGame" />
+        <div class="forum">
+            <p class="title">{% trans %}Users <span>forum</span>{% endtrans %}</p>
+            <div class="text">{% trans %}Stay up-to-date, take fierce conversations, solve the problems of others. Admin guides for all game platforms, join us!{% endtrans %}</div>
+            {#<button class="button">{% trans %}Visit forum{% endtrans %}</button>#}
+        </div>
+        <div class="newsletter">
+            <p class="title">Newsletter <span>MaxGamedCloud!</span></p>
+            <div class="text">{% trans %}Would you like to receive information about promotions and new products on our site? - subscribe our newsletter and we will send you a weekly email.{% endtrans %}</div>
+            <div class="subscribe">
+                <input type="email" placeholder="{% trans %}Enter your email address{% endtrans %}" name="newsletterEmail" id="newsletterEmail" />
+                <button class="button">{% trans %}Subscribe{% endtrans %}</button>
+            </div>
+        </div>
+    </div>
+    <div class="footerMenu">
+        {{ render(controller('MGCPortalBundle:Page:menu', {'position': 'footer'})) }}
+    </div>
+    <div class="payments">
+        <img src="{{ asset('/images/payments/paypal.png') }}" />
+        <img src="{{ asset('/images/payments/dotpay.png') }}" />
+        <img src="{{ asset('/images/payments/payu.png') }}" />
+        <img src="{{ asset('/images/payments/direct.png') }}" />
+    </div>
+    <div class="bottom">
+        &copy; 2013 <a href="{{ path('home_page') }}">mgc24.com</a> {% trans %}All rights reserved!{% endtrans %}
+        <span>Code & Design: <a href="http://it-log.pl" title="Agencja interaktywna">it-log.pl</a></span>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{% extends '::layout.html.twig' %}
+
+{% block subpage %}
+    {{ page.title }}
+{% endblock %}
+
+{% block subtitle %}{% endblock %}
+
+{% block breadcrumb %}
+    <li>{{ page.title }}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="pageContent">
+        {{ page.content|raw }}
+    </div>
+{% endblock %}

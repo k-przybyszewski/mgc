@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Home Page</source>
+                <target>Strona Główna</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Select language</source>
+                <target>Wybierz język</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Select currency</source>
+                <target>Wybierz walutę</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Password recovery</source>
+                <target>Przypomnij hasło</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Create account</source>
+                <target>Utwórz konto</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>email address</source>
+                <target>adres email</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>password</source>
+                <target>hasło</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Order server</source>
+                <target>Zamów serwer</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Game servers</source>
+                <target>Serwery gier</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Dedicated servers</source>
+                <target>Serwery dedykowane</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Why we?</source>
+                <target>Dlaczego my?</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Contact</source>
+                <target>Kontakt</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Do you like our website? - Recommend us to your friends!</source>
+                <target>Podoba Ci się nasza strona? - Poleć znajomym!</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Select</source>
+                <target>Wybierz</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Our server <![CDATA[<span class="demi">locations</span>]]></source>
+                <target>Lokalizacje naszych <![CDATA[<span class="demi">serwerów</span>]]></target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Why <![CDATA[<span class="demi">we?</span>]]></source>
+                <target>Dlaczego <![CDATA[<span class="demi">my?</span>]]></target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>Attractive prices</source>
+                <target>Atrakcyjne ceny</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>One of the largest gaming networks</source>
+                <target>Jedna z największych sieci gamingowych</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>Support</source>
+                <target>Wsparcie techniczne</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>See what else we can offer</source>
+                <target>Zobacz co jeszcze możemy Ci zaoferować</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>Frequent promotions, cheap servers in all locations, nowhere else will you find such low prices!</source>
+                <target>Super promocje, tanie serwery we wszystkich lokalizacjach, nigdzie indziej nie znajdziesz tak niskich cen!</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>We have servers for many popular games - with us you will certainly find what you are looking for! Low pings because of the many possible locations.</source>
+                <target>Dysponujemy serwerami dla wielu popularnych gier - z nami napewno znajdziesz to czego szukasz! Niskie pingi z uwagi na wiele możliwych lokalizacji.</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>Our consultants are experienced individuals that help our customers seven days a week, twenty-four hours a day.</source>
+                <target>Nasi konsultanci to doświadczone osoby, które pomagają naszym klientom siedem dni w tygodniu, dwadzieściacztery godziny na dobe.</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>Show server locations</source>
+                <target>Pokaż lokalizacje serwerów</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>Guaranteed Satisfaction</source>
+                <target>Satysfakcja gwarantowana</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>Share payments via many providers e.g. PayPal</source>
+                <target>Płatności elektroniczne np. PayPal</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>Easy server management with our custom Control Panel!</source>
+                <target>Proste zarzadzanie serwerami poprzez specjalny Panel Klienta!</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>We are always when you need us! Your favorite games will be even more rewarding.</source>
+                <target>Jesteśmy zawsze gdy nas potrzebujesz! Twoje ulubione gry staną się jeszcze bardziej satysfakcjonujące.</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>Transactions are handled automatically. Completed orders are just a few minutes.</source>
+                <target>Transakcje obsługiwane są automatycznie. Zakończone zamówienie to tylko kilka minut.</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>Switch locations any time!</source>
+                <target>Zmiana lokalizacji w każdym momencie!</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>If you want to change the location of your server, nothing stands in the way - just a few clicks, and your server is on the other side of the world.</source>
+                <target>Jeżeli chcesz zmienić lokalizację swojego serwera nic nie stoi na przeszkodzie - wystarczy kilka kliknięć i Twój serwer jest na drugim końcu świata.</target>
+            </trans-unit>
+            <trans-unit id="32">
+                <source>Powerful affiliate system</source>
+                <target>Rozbudowany system partnerski</target>
+            </trans-unit>
+            <trans-unit id="33">
+                <source>Do you want to sell the game servers on your website? - Please notify our customer service, and we will work together.</source>
+                <target>Chcesz sprzedawać serwery gier na swojej stronie internetowej? - Poinformuj o tym nasze Biuro Obsługi Klienta, a podejmiemy współpracę.</target>
+            </trans-unit>
+            <trans-unit id="34">
+                <source>Order now</source>
+                <target>Zamów teraz</target>
+            </trans-unit>
+            <trans-unit id="35">
+                <source>Updates and news in</source>
+                <target>Aktualizacje i news'y w</target>
+            </trans-unit>
+            <trans-unit id="36">
+                <source>read more</source>
+                <target>czytaj wiecej</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>Users <![CDATA[<span>forum</span>]]></source>
+                <target>Forum <![CDATA[<span>użytkowników</span>]]></target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>Visit forum</source>
+                <target>Odwiedź forum</target>
+            </trans-unit>
+            <trans-unit id="39">
+                <source>Stay up-to-date, take fierce conversations, solve the problems of others. Admin guides for all game platforms, join us!</source>
+                <target>Bądź na bieżąco, uczestnicz w zaciętych konwersacjach, rozwiązuj problemy innych użytkowników. Poradniki admina!</target>
+            </trans-unit>
+            <trans-unit id="40">
+                <source>Would you like to receive information about promotions and new products on our site? - subscribe our newsletter and we will send you a weekly email.</source>
+                <target>Chcesz otrzymywać informacje na temat promocji i nowości w naszym serwisie? - zasubskrybuj nasz newsletter.</target>
+            </trans-unit>
+            <trans-unit id="41">
+                <source>Enter your email address</source>
+                <target>Wpisz swój adres email</target>
+            </trans-unit>
+            <trans-unit id="42">
+                <source>Subscribe</source>
+                <target>Zasubskrybuj</target>
+            </trans-unit>
+            <trans-unit id="43">
+                <source>About us</source>
+                <target>O nas</target>
+            </trans-unit>
+            <trans-unit id="44">
+                <source>Privacy policy</source>
+                <target>Polityka prywatności</target>
+            </trans-unit>
+            <trans-unit id="45">
+                <source>Regulations</source>
+                <target>Regulamin</target>
+            </trans-unit>
+           <trans-unit id="46">
+                <source>Useful guides</source>
+                <target>Przydatne poradniki</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>Demo servers</source>
+                <target>Serwery demonstracyjne</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>Most popular servers</source>
+                <target>Najpopularniejsze</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>ALL Game Servers</source>
+                <target>Wszystkie serwery gier</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>Offer</source>
+                <target>Oferta</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>Ventrilo servers</source>
+                <target>Serwery ventrilo</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>Teamspeak servers</source>
+                <target>Serwery teamspeak</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>Mumble servers</source>
+                <target>Serwery mumble</target>
+            </trans-unit>
+            <trans-unit id="54">
+                <source>Contact form</source>
+                <target>Formularz kontaktowy</target>
+            </trans-unit>
+            <trans-unit id="55">
+                <source>Follow us</source>
+                <target>Znajdź nas</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>All rights reserved!</source>
+                <target>Wszelkie prawa zastrzeżone!</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>Show more details</source>
+                <target>Pokaż więcej</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

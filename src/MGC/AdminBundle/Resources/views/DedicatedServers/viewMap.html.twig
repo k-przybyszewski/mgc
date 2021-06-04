@@ -1,0 +1,19 @@
+<div class="map">
+    {% for keyy,y in map %}
+        {% for keyx,data in y %}
+            {% set key = keyy ~ '-' ~ keyx %}
+            <div id="{{key}}" class="pixel {% if data %}land{% endif %} {% if key in sLocations|keys %} server{% endif %}" {% if key in sLocations|keys %} data-alert="{{ 'Already server located here!'|trans({}, 'admin') }}"{% endif %}></div>
+
+            {% if key in sLocations|keys %}
+            <div class="tooltip buttonWrapper">
+                <div class="side left"></div>
+                <div class="center">
+{#                     <img src="{{ asset('/images/flags/') }}{{ sLocations[key].flag }}"/>#}
+                    <span>{{ sLocations[key].city }}</span> ({{ sLocations[key].country }})
+                </div>
+                <div class="side right"></div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>

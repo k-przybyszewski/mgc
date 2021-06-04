@@ -1,0 +1,18 @@
+{% extends '::layout.html.twig' %}
+
+{% block subpage %}
+    {{ news.title }}
+{% endblock %}
+
+{% block subtitle %}{% endblock %}
+
+{% block breadcrumb %}
+    <li>{{ news.title }}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="newsContent">
+        {{ news.content|raw }}
+    </div>
+    <a href="{{ path('home_page') }}">&larr; {{ 'Go back'|trans }}</a>
+{% endblock %}

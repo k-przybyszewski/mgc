@@ -1,0 +1,47 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-create">{{ 'Pages'|trans({}, 'admin') }}</span>
+        <a href="{{ path('admin_page_new') }}" class="aright small mws-button orange">{{ 'Add new'|trans({}, 'admin') }}</a>
+    </div>
+    <div class="mws-panel-body">
+        <table class="mws-table">
+            <thead>
+                <tr>
+                    <th>{{ 'Title'|trans }}</th>
+                    <th>{{ 'Position'|trans }}</th>
+                    <th>{{ 'Category'|trans }}</th>
+                    <th>{{ 'Created'|trans }}</th>
+                    <th width="150"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for page in pages %}
+                    <tr>
+                        <td>{{ page.title }}</td>
+                        <td>{{ enum['position'][page.position] }}</td>
+                        <td>
+                            {% if page.footerCategory %}
+                                {{ enum['footerCategory'][page.footerCategory] }}
+                            {% else %}
+                                {{ '...' }}
+                            {% endif %}
+                        </td>
+                        <td>{{ page.createdAt|date('Y-m-d H:i') }}</td>
+                        <td>
+                            <a href="{{ path('admin_page_edit', {'id': page.id}) }}" class="mws-button small blue">{{ 'Edit'|trans({}, 'admin') }}</a>
+                            <a href="{{ path('admin_page_delete', {'id': page.id}) }}" class="mws-button small red">{{ 'Delete'|trans({}, 'admin') }}</a>
+                            <a href="{{ path('portal_page_view', {'slug': page.slug}) }}" class="mws-button small orange view">{{ 'View'|trans({}, 'admin') }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if pages.haveToPaginate %}
+            {{ pagerfanta(pages, 'twitter_bootstrap_translated') }}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

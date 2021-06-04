@@ -1,0 +1,56 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-create">{{ 'Promo'|trans({}, 'admin') }}</span>
+        <a href="{{ path('admin_promo_new') }}" class="aright small mws-button orange">{{ 'Add new'|trans({}, 'admin') }}</a>
+    </div>
+    <div class="mws-panel-body">
+        <table class="mws-table">
+            <thead>
+                <tr>
+                    <th>{{ 'Game'|trans }}</th>
+                    <th>{{ 'Server'|trans }}</th>
+                    <th width="60">{{ 'Price'|trans }}</th>
+                    <th width="30">{{ 'Discount'|trans }}</th>
+                    <th width="30">{{ 'Remain slots'|trans }}</th>
+                    <th>{{ 'Start date'|trans }}</th>
+                    <th>{{ 'End date'|trans }}</th>
+                    <th width="30">{{ 'Status'|trans }}</th>
+                    <th width="220"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for promo in promos %}
+                    <tr>
+                        <td>{{ promo.slotPrice.game }}</td>
+                        <td>{{ promo.slotPrice.server }}</td>
+                        <td><span class="red">{{ promo.newPrice }} &euro;</span> <s>({{ promo.slotPrice.price }} &euro;)</s></td>
+                        <td>{{ promo.discount }} %</td>
+                        <td>{{ promo.remainSlots }}</td>
+                        <td>{{ promo.publicationDate|date('Y-m-d H:i') }}</td>
+                        <td>{{ promo.closeDate|date('Y-m-d H:i') }}</td>
+                        <td class="{{ promo.status|lower }}">{{ promo.status }}</td>
+                        <td>
+                            <a href="{{ path('admin_promo_edit', {'id': promo.id}) }}" class="mws-button small blue">{{ 'Edit'|trans({}, 'admin') }}</a>
+                            {% if promo.banner %}
+                                <a href="{{ asset(promo.banner.webPath) }}" target="_blank" class="mws-button small black">{{ 'Banner'|trans }}</a>
+                            {% endif %}
+                            {% if promo.enabled %}
+                                <a href="{{ path('admin_promo_switch', {'id': promo.id, 'enabled': 0}) }}" class="mws-button small orange">{{ 'Disable'|trans }}</a>
+                            {% else %}
+                                <a href="{{ path('admin_promo_switch', {'id': promo.id}) }}" class="mws-button small green">{{ 'Enable'|trans }}</a>
+                            {% endif %}
+                            <a href="{{ path('admin_promo_delete', {'id': promo.id}) }}" class="mws-button small red">{{ 'Delete'|trans({}, 'admin') }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if promos.haveToPaginate %}
+            {{ pagerfanta(promos, 'twitter_bootstrap_translated') }}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

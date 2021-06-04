@@ -1,0 +1,43 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_8">
+	<div class="mws-panel-header">
+    	<span class="mws-i-24 i-create">{{ 'Dedicated servers'|trans({}, 'admin') }}</span>
+    	<a href="{{ path('admin_dedicated_server_new') }}" class="aright small mws-button orange">{{ 'Add new'|trans({}, 'admin') }}</a>
+    </div>
+    <div class="mws-panel-body">
+		<table class="mws-table">
+			<thead>
+				<tr>
+					<th>{{ 'Name'|trans({}, 'admin') }}</th>
+					<th>{{ 'Country'|trans({}, 'admin') }}</th>
+					<th>{{ 'City'|trans({}, 'admin') }}</th>
+					<th>{{ 'IP Address'|trans({}, 'admin') }}</th>
+					<th>{{ 'Status'|trans({}, 'admin') }}</th>
+					<th width="100"></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for server in servers %}
+				<tr class="{{ cycle(['odd', 'even'], loop.index) }}">
+					<td>{{ server.name }}</td>
+					<td>{{ server.country.name }}</td>
+					<td>{{ server.city }}</td>
+					<td>{{ server.ipAddress }}</td>
+					<td></td>
+					<td>
+						<a href="{{ path('admin_dedicated_server_edit', {'id': server.id}) }}" class="mws-button small blue">{{ 'Edit'|trans({}, 'admin') }}</a>
+{# 						<a href="" class="mws-button small orange">{{ 'Disable'|trans({}, 'admin') }}</a>#}
+						<a href="{{ path('admin_dedicated_server_delete', {'id': server.id}) }}" class="mws-button small red">{{ 'Delete'|trans({}, 'admin') }}</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% if servers.haveToPaginate %}
+			{{ pagerfanta(servers, 'twitter_bootstrap_translated') }}
+		{% endif %}
+    </div>
+</div>
+{% endblock %}

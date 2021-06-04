@@ -1,0 +1,195 @@
+.map {
+    width: 625px;
+    height: 355px;
+    margin: 25px auto;
+}
+
+.map > div.pixel {
+    float: left;
+    height: 12px;
+    width: 12px;
+    margin: 0 1px 1px 0;
+    border-radius: 50%;
+}
+
+.map > div.tooltip {
+    position: absolute;
+    height: 28px;
+    color: #000;
+    display: none;
+}
+
+.map > div.tooltip .center {
+    padding: 0 5px;
+}
+
+.map > div.tooltip .center span {
+    font-weight: bold;
+}
+
+.map > div.tooltip img {
+    margin: 6px 5px 0 0;
+    vertical-align: text-bottom;
+}
+
+.map > div.land {
+	cursor: pointer;
+    background-color: #dfdfdf;
+}
+
+.map > div.land:hover {
+    background-color: #ca4e4e;
+}
+
+.map > div.server {
+    background-color: #000;
+    cursor: pointer;
+}
+
+.map > div.new-server {
+    background-color: #ca4e4e;
+}
+
+.map .tooltip {
+	background: #000;
+	color: #fff !important;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.red {
+	color: red;
+}
+
+.pagination {
+	width: 100%;
+	background-color: #444444;
+	color: #fff;
+	height: 44px;
+	line-height: 44px;
+}
+
+.pagination ul {
+	float: right;
+	list-style: none;
+	margin: 10px 8px;
+	height: 20px;
+	color: #fff;
+	background-repeat: repeat;
+	background-image: url(images/core/mws-inset.png);
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15), inset 0px 1px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15), inset 0px 1px 2px rgba(0, 0, 0, 0.5);
+	
+	padding: 2px;
+}
+
+.pagination li.prev {
+	border-left: 0;
+}
+
+.pagination li.next {
+    border-right: 0;
+}
+.pagination li {
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	margin: 0;
+	border-right: 1px solid rgba(0, 0, 0, 0.5);
+	border-left: 1px solid rgba(255, 255, 255, 0.15);
+	-webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 0px rgba(255, 255, 255, 0.15);
+	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 0px rgba(255, 255, 255, 0.15);
+}
+
+.pagination li a {
+    display: block;
+    float: left;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.pagination li.disabled a {
+	color: #666666;
+	cursor: default;
+}
+
+.pagination li.active a {
+	background-color:  #c5d52b;
+	color: #323232;
+}
+
+.price-input {
+    width: 55px !important;
+    text-align: center;
+}
+
+.fright {
+	float: right;
+}
+
+.slot-price-holder {
+	float: left;
+	width: 100%;
+}
+
+.valid {
+	color: green;
+}
+
+.ready {
+	color: orange;
+}
+
+.outdated, .disabled {
+	color: red;
+}
+
+ul.promo {
+	margin: 0 auto;
+	display: block;
+	float: none;
+}
+ul.promo li {
+	float: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.gameFiles {
+	width: 450px;
+	margin: 30px;
+}
+
+.gameFiles td {
+	padding-bottom: 15px;
+}
+
+.gameFiles img.icon {
+	max-width: 32px;
+	max-height: 32px;
+}
+
+.star {
+	font-size: 18px;
+}
+
+.page-category {
+	display: none;
+}
+
+textarea.page {
+	height: 600px;
+}

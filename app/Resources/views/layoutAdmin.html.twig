@@ -1,0 +1,123 @@
+{% extends "::admin.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/mws.style.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/icons/16x16.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/icons/24x24.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/icons/32x32.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/mws/timepicker.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/main.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/promo.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/chosen/chosen.min.css') }}" media="screen" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+{% endblock %}
+
+{% block headscripts %}
+	<script>
+		var routeName = '{{ app.request.attributes.get('_route') }}';
+	</script>
+    <script src="{{ asset('js/jquery-2.0.3.min.js') }}"></script>
+    <script src="{{ asset('js/admin/tinymce/tinymce.min.js') }}"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="{{ asset('js/admin/mws/timepicker.js') }}"></script>
+    <script src="{{ asset('js/admin/chosen/chosen.jquery.min.js') }}"></script>
+    <script src="{{ asset('js/admin/application.js') }}"></script>
+    <script src="{{ asset('js/jquery.my-drag-and-drop.js') }}"></script>
+{% endblock %}
+
+{% trans_default_domain 'admin' %}
+
+{% block body %}
+<!-- Header -->
+<div id="mws-header" class="clearfix">
+	<div id="mws-logo-container">
+    	<div id="mws-logo-wrap">
+        	<h2 style="color: #c5d52b; margin: 0px;"><span style="color: #fff;">MGC</span> Admin Panel</h2>
+		</div>
+    </div>
+
+    <div id="mws-user-tools" class="clearfix">
+        <div id="mws-user-info" class="mws-inset">
+        	<div id="mws-user-photo">
+            	<img src="{{ asset('images/mws/profile.jpg') }}" alt="User Photo" />
+            </div>
+
+            <div id="mws-user-functions">
+                <div id="mws-username">
+                    Hello, {{ app.user.firstName }} {{ app.user.lastName }}
+                </div>
+                <ul>
+{#                 	<li><a href="#">Profile</a></li>#}
+{#                     <li><a href="#">Change Password</a></li>#}
+                    <li><a href="{{ path('admin_logout') }}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mws-wrapper">
+	<div id="mws-sidebar-stitch"></div>
+	<div id="mws-sidebar-bg"></div>
+
+    <div id="mws-sidebar">
+{#     	<div id="mws-searchbox" class="mws-inset">#}
+{#         	<form action="http://www.malijuthemeshop.com/themes/mws-admin/1.3/typography.html">#}
+{#             	<input type="text" class="mws-search-input" />#}
+{#                 <input type="submit" class="mws-search-submit" />#}
+{#             </form>#}
+{#         </div>#}
+        <div id="mws-navigation">
+        	<ul>
+            	<li class="admin_dashboard"><a href="{{ path('admin_dashboard') }}" class="mws-i-24 i-home">{{ 'Dashboard'|trans({}, 'admin') }}</a></li>
+            	<li class="admin_dedicated_servers">
+            		<a href="{{ path('admin_dedicated_servers') }}" class="mws-i-24 i-cloud">{{ 'Dedicated servers'|trans }}</a>
+            	</li>
+            	<li class="admin_game_list admin_game_categories_list">
+            		<a href="#" class="mws-i-24 i-radio-signal">{{ 'Game'|trans }}</a>
+                    <ul class="closed">
+                    	<li><a href="">{{ 'Active servers list'|trans({}, 'admin') }}</a></li>
+                    	<li><a href="{{ path('admin_game_list') }}">{{ 'List'|trans({}, 'admin') }}</a></li>
+                    	<li><a href="{{ path('admin_game_categories_list') }}">{{ 'Categories'|trans({}, 'admin') }}</a></li>
+                    </ul>
+            	</li>
+            	<li class="admin_news_list admin_categories_list">
+            		<a href="#" class="mws-i-24 i-list">{{ 'News'|trans }}</a>
+                    <ul class="closed">
+                    	<li><a href="{{ path('admin_news_list') }}">{{ 'List'|trans }}</a></li>
+                    	<li><a href="{{ path('admin_categories_list') }}">{{ 'Categories'|trans }}</a></li>
+                    </ul>
+            	</li>
+            	<li>
+            		<a href="#" class="mws-i-24 i-message">{{ 'Newsletter'|trans }}</a>
+            	</li>
+            	<li>
+            		<a href="{{ path('admin_page_list') }}" class="mws-i-24 i-list-images">{{ 'Pages'|trans }}</a>
+            	</li>
+            	<li>
+            		<a href="{{ path('admin_promo_list') }}" class="mws-i-24 i-price-tag">{{ 'Promo'|trans }}</a>
+            	</li>
+            	<li>
+            		<a href="#" class="mws-i-24 i-money">{{ 'Transactions'|trans }}</a>
+            	</li>
+            	<li>
+            		<a href="#" class="mws-i-24 i-users">{{ 'Users'|trans }}</a>
+            	</li>
+            	<li>
+            		<a href="#" class="mws-i-24 i-microphone">{{ 'Voice'|trans }}</a>
+                    <ul class="closed">
+                    	<li><a href="">{{ 'Active servers list'|trans({}, 'admin') }}</a></li>
+                    	<li><a href="">{{ 'Game list'|trans({}, 'admin') }}</a></li>
+                    </ul>
+            	</li>
+            </ul>
+        </div>            
+    </div>
+    
+    <div id="mws-container" class="clearfix">
+        <div class="container">
+			{% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

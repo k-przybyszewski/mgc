@@ -1,0 +1,10 @@
+.buttonWrapper {float: left;}
+.buttonWrapper a,.buttonWrapper input, .buttonWrapper button, .buttonWrapper .center { -moz-box-shadow: 0 6px 10px -6px #000; -webkit-box-shadow: 0 6px 10px -6px #000; box-shadow: 0 6px 10px -6px #000; cursor: pointer; margin: 0; padding: 0 3px; float: left; border: 0px; height: 28px; background: url(../../images/buttonBg.png) repeat-x top left;}
+.buttonWrapper .side {float: left; width: 7px; height: 28px;}
+.buttonWrapper a {
+	line-height: 28px;
+}
+.buttonWrapper .side.left {background: url(../../images/buttonLeft.png) no-repeat top left;}
+.buttonWrapper .side.right {background: url(../../images/buttonRight.png) no-repeat top left;}
+
+.tooltip .center {line-height: 28px;}

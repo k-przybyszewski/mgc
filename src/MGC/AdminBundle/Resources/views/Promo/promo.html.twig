@@ -1,0 +1,98 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_6">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-list">{{ 'Promo'|trans({}, 'admin') }}</span>
+    </div>
+    <div class="mws-panel-body">
+    <form class="mws-form" method="post" {{ form_enctype(form) }} novalidate>
+        {% if form_errors(form) %}
+            <div class="mws-form-message error">
+                Error!
+                {{ form_errors(form) }}
+            </div>
+        {% endif %}
+        <div class="mws-form-inline">
+            {% if promo %}
+                <div class="mws-form-row fright">
+                    {{ 'Language:' }}
+                    <a href="{{ path('admin_promo_edit', {'id': promo.id, 'locale': 'en_US'}) }}" class="mws-button blue small">{{ 'English'|trans }}</a>
+                    <a href="{{ path('admin_promo_edit', {'id': promo.id, 'locale': 'pl_PL'}) }}" class="mws-button blue small">{{ 'Polish'|trans }}</a>
+                </div>
+            {% endif %}
+            <div class="mws-form-row">
+                {{ form_label(form.slotPrice) }}
+                <div class="mws-form-item small">
+                    {{ form_widget(form.slotPrice, {'attr': {'class': 'chosen-select'}}) }}
+                </div>
+            </div>
+            <div class="mws-form-row">
+                {{ form_label(form.remainSlots) }}
+                <div class="mws-form-item small">
+                    {{ form_widget(form.remainSlots, {'attr': {'class': 'mws-textinput'}}) }}
+                </div>
+            </div>
+            <div class="mws-form-row">
+                {{ form_label(form.discount) }}
+                <div class="mws-form-item small">
+                    {{ form_widget(form.discount, {'attr': {'class': 'mws-textinput'}}) }}
+                </div>
+            </div>
+            <div class="mws-form-row">
+                {{ form_label(form.publicationDate) }}
+                <div class="mws-form-item small">
+                    {{ form_widget(form.publicationDate, {'attr': {'class': 'mws-textinput mws-dtpicker', 'readonly': 'readonly'}}) }}
+                </div>
+            </div>
+            <div class="mws-form-row">
+                {{ form_label(form.closeDate) }}
+                <div class="mws-form-item small">
+                    {{ form_widget(form.closeDate, {'attr': {'class': 'mws-textinput mws-dtpicker', 'readonly': 'readonly'}}) }}
+                </div>
+            </div>
+            <div class="mws-form-row">
+                {{ form_label(form.promoText) }}
+                <div class="mws-form-item small">
+                    {{ form_widget(form.promoText, {'attr': {'class': 'mws-textinput'}}) }}
+                </div>
+            </div>
+            <div class="mws-form-row">
+                {{ form_label(form.theme) }}
+                <div class="mws-form-item small">
+                    {{ form_widget(form.theme, {'attr': {'class': 'mws-textinput'}}) }}
+                </div>
+            </div>
+            <div class="mws-form-row">
+                {{ form_label(form.banner) }}
+                <div class="mws-form-item small">
+                    {{ form_widget(form.banner.file, {'attr': {'class': 'mws-textinput'}}) }}
+                    {% if form_errors(form.banner.file) %}
+                        <div class="mws-error">
+                            {{ form_errors(form.banner.file) }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {{ form_rest(form) }}
+        <div class="mws-button-row">
+            <a href="{{ path('admin_promo_list') }}" class="mws-button gray">{{ 'Cancel'|trans }}</a>
+            <input type="submit" value="Save" class="mws-button red">
+        </div>
+	</form>
+    </div>
+</div>
+{% if promo %}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-list">{{ 'Promo banner'|trans({}, 'admin') }}</span>
+    </div>
+    <div class="mws-panel-body">
+        <ul class="promo">
+            {{ render(controller('MGCAdminBundle:Promo:render', {'promo': promo})) }}
+        </ul>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

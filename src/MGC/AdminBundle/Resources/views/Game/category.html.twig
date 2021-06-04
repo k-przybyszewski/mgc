@@ -1,0 +1,31 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_6">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-list">{{ 'Category'|trans({}, 'admin') }}</span>
+    </div>
+    <div class="mws-panel-body">
+        <form class="mws-form" method="post" {{ form_enctype(form) }}>
+            {% if form_errors(form) %}
+                <div class="mws-form-message error">
+                    Error!
+                    {{ form_errors(form) }}
+                </div>
+            {% endif %}
+            <div class="mws-form-inline">
+                <div class="mws-form-row">
+                    {{ form_label(form.name) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.name, {'attr': {'class': 'mws-textinput'}}) }}
+                    </div>
+                </div>
+            {{ form_rest(form) }}
+            <div class="mws-button-row">
+                <a href="{{ path('admin_game_categories_list') }}" class="mws-button gray">{{ 'Cancel'|trans }}</a>
+            	<input type="submit" value="Save" class="mws-button red">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

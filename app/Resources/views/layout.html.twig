@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div id="header">
+    <div class="leftBox"></div>
+    <div id="siteHeader">
+        <div class="shadowLocker"></div>
+        <div class="whiteWrapper">
+            <a href="{{ path('home_page') }}" class="homeLogo" title="{{ 'Home Page'|trans }}"></a>
+            {{ render(controller('MGCPortalBundle:Index:currencyAndLanguage', {request: app.request})) }}
+            {% if not is_granted('ROLE_CLIENT') and app.user is null %}
+                {{ render(controller('MGCClientBundle:Client:loginBox')) }}
+            {% else %}
+                {% include 'MGCClientBundle:Security:loggedBox.html.twig' %}
+            {% endif %}
+            <div class="siteMenu pageMenu">
+                {{ render(controller('MGCPortalBundle:Page:menu')) }}
+            </div>
+            <div class="social">
+                <div class="promoText">{{ 'Do you like our website? - Recommend us to your friends!'|trans }}</div>
+                <div class="addthis">
+                    social
+                </div>
+            </div>
+        </div>
+        <div class="pageHeader">
+        	<ul class="breadcrumb">
+        		<li><a href="{{ path('home_page') }}">{{ 'Home'|trans }}</a></li>
+        		<li class="sep">/</li>
+  				{% block breadcrumb %}{% endblock %}
+        	</ul>
+        	<div class="subpage">
+        		<h1>{% block subpage %}Subpage title{% endblock %}</h1>
+        	</div>
+        	{% block subtitle %}
+        	<div class="subtitle">
+        		<h1>Subpage subtitle</h1>
+        	</div>
+        	{% endblock %}
+        </div>
+    </div>
+    <div class="rightGameLogo"></div>
+</div>
+<div class="underheaderWrapper">
+	<div class="underheader">
+	    {% block underheader %}{% endblock %}
+	</div>
+</div>
+<div class="page">
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    {% include 'MGCPortalBundle:Index:_sidebar.html.twig' %}
+</div>
+{% endblock %}

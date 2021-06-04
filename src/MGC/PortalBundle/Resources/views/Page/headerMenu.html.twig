@@ -1,0 +1,8 @@
+<a href="{{ path('home_page') }}" title="{{ 'Home page'|trans }}">
+    <img src="{{ asset('/images/homeIco.png') }}" />
+</a>
+<a href="{{ path('portal_game_servers_view') }}">{{ 'Game servers'|trans }}</a>
+<a href="{{ path('contact') }}">{{ 'Contact'|trans }}</a>
+{% for page in pages %}
+    <a href="{{ path('portal_page_view', {'slug': page.slug}) }}">{{ page.title }}</a>
+{% endfor %}

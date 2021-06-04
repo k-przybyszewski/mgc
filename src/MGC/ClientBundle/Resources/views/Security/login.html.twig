@@ -1,0 +1,39 @@
+{% extends "::layoutClient.html.twig" %}
+
+{% block breadcrumb %}
+	<li>{{ 'Login'|trans }}</li>
+{% endblock %}
+{% block subpage %}{{ 'Client login'|trans }}{% endblock %}
+
+{% block subtitle %}{% endblock %}
+
+{% block content%}
+<form action="{{ path('client_login_check') }}" method="post" novalidate>
+    {% if error|length > 0 %}
+        <section class="error">
+            {{ error|trans({}, 'FOSUserBundle') }}
+        </section>
+    {% endif %}
+    <section>
+        <fieldset>
+            <div class="form-row">
+                {{ form_label(form._username) }}
+                {{ form_widget(form._username) }}
+            </div>
+            <div class="form-row">
+                {{ form_label(form._password) }}
+                {{ form_widget(form._password) }}
+            </div>
+{#             <div class="form-row">#}
+{#                 {{ form_label(form._remember_me) }}#}
+{#                 {{ form_widget(form._remember_me) }}#}
+{#             </div>#}
+        </fieldset>
+        <fieldset class="form-footer">
+            <a href="{{ path('client_resetting_request') }}">&larr; {{ 'Password recovery'|trans }}</a>
+            <input type="submit" id="_submit" class="fright gray-button" name="_submit" value="{{ 'Login'|trans }}" />
+        </fieldset>
+        {{ form_rest(form) }}
+    </section>
+</form>
+{% endblock %}

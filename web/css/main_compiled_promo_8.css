@@ -1,0 +1,144 @@
+ul.promo li {
+    position: relative;
+    float: left;
+    width: 1002px;
+    height: 275px;
+    margin: 0;
+    padding: 0;
+}
+
+ul.promo li.bestPromo {
+    font-family: "Roboto";
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+ul.promo li.bestPromo .topText {
+    font-size: 28px;
+    position: absolute;
+    top: 70px;
+    left: 23px;
+    width: 360px;
+    line-height: 32px;
+}
+
+ul.promo li.bestPromo .topText span {
+    font-size: 36px;
+}
+
+ul.promo li.bestPromo .bottomText {
+    position: absolute;
+    left: 23px;
+    top: 158px;
+    font-size: 18px;
+    width: 355px;
+    line-height: 18px;
+}
+
+ul.promo li.bestPromo .rightText {
+    position: absolute;
+    font-size: 24px;
+    right: 32px;
+    top: 148px;
+    color: #fff;
+    text-shadow: 2px 3px 3px #000000;
+}
+
+ul.promo li.bestPromo .bottomText span {
+    font-size: 34px;
+    line-height: 30px;
+}
+
+ul.promo li .slotsCounter {
+    position: absolute;
+    top: 90px;
+    left: 295px;
+    width: 400px;
+    height: 70px;
+}
+
+ul.promo li .slotsCounter .number {
+    float: left;
+    width: 42px;
+    height: 63px;
+    color: #fff;
+    font-size: 46px;
+    padding-top: 3px;
+    text-align: center;
+    margin: 0 8px 0 0;
+}
+
+ul.promo li .slotsCounter .slotsText {
+    float: left;
+    font-family: "CorporateS Demi";
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 3px 3px #000000;
+    margin: 0 0 0 15px;
+}
+
+ul.promo li .slotsCounter .slotPrice {
+    float: left;
+    width: 112px;
+    height: 29px;
+    background: url(../../images/promo/slotsPrice.png) no-repeat top left;
+    margin: 7px 0 0 15px;
+    color: #000;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 28px;
+}
+
+ul.promo li .slotsCounter.battlefield3 {
+    left: 385px;
+}
+
+ul.promo li .slotsCounter.minecraft {
+    left: 445px;
+}
+
+/*SLOT COUNTER COLORS*/
+ul.promo li .slotsCounter.grean .number {
+    background: url(../../images/promo/slotsGrean.png) no-repeat top left;
+}
+ul.promo li .slotsCounter.orange .number {
+    background: url(../../images/promo/slotsOrange.png) no-repeat top left;
+}
+ul.promo li .slotsCounter.blue .number {
+    background: url(../../images/promo/slotsBlue.png) no-repeat top left;
+}
+ul.promo li .slotsCounter.lime .number {
+    background: url(../../images/promo/slotsLime.png) no-repeat top left;
+}
+/*END SLOT COUNTER COLORS*/
+
+ul.promo li .slotsCounter .number:last-child {
+    margin: 0px;
+}
+
+ul.promo li p.bottomText {
+    position: absolute;
+    font-family: "CorporateS Demi";
+    font-size: 30px;
+    color: #fff;
+    top: 170px;
+    left: 22px;
+    text-shadow: 2px 3px 3px #000000;
+    margin: 0;
+    padding: 0;
+}   
+
+ul.promo li .buttonWrapper {
+    position: absolute;
+    bottom: 45px;
+    right: 22px;
+}
+
+.drag-and-drop-block:HOVER {
+    border: 1px dotted #fff;
+    cursor: move;
+    margin-top: -1px;
+    margin-left: -1px;
+}

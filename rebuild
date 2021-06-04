@@ -1,0 +1,18 @@
+#!/bin/bash
+APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd' | grep -v root | head -1 | cut -d\  -f1`
+sudo setfacl -R -m u:$APACHEUSER:rwX -m u:`whoami`:rwX app/cache app/logs web/uploads app/swift_spool
+sudo setfacl -dR -m u:$APACHEUSER:rwX -m u:`whoami`:rwX app/cache app/logs web/uploads app/swift_spool
+
+app/console doctrine:database:drop --force --verbose
+app/console doctrine:database:create --verbose
+app/console doctrine:schema:create --verbose
+app/console generate:doctrine:entities MGC --verbose
+app/console doctrine:fixtures:load --no-interaction
+app/console doctrine:cache:clear-metadata --env=prod
+app/console doctrine:cache:clear-query --env=prod
+app/console doctrine:cache:clear-result --env=prod
+app/console lexik:currency:import ecb
+app/console mgc:migrations:store
+app/console cache:clear
+app/console cache:clear --env=prod --no-debug
+rm -rfv web/uploads/*

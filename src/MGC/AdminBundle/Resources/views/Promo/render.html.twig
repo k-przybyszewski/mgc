@@ -1,0 +1,14 @@
+<li>
+    {% if promo.banner %}
+        <img src="{{ asset(promo.banner.webPath) }}"/>
+    {% endif %}
+    <div class="slotsCounter {{ promo.theme }}" style="top: {{ promo.positionCounterTop }}px; left: {{ promo.positionCounterLeft }}px;">
+        <div class="first number">{{ promo.remainSlotsArray[0] }}</div>
+        <div class="second number">{{ promo.remainSlotsArray[1] }}</div>
+        <div class="third number">{{ promo.remainSlotsArray[2] }}</div>
+        <div class="slotsText">{{ 'Remaining slots'|trans }}!</div>
+        <div class="slotPrice">{{ promo.newPrice|currency_convert_format(app.session.get('_currency', 'EUR')) }}/slot</div>
+    </div>
+    <p class="bottomText" style="top: {{ promo.positionTextTop }}px; left: {{ promo.positionTextLeft }}px;">{{ promo.promoText }}</p>
+    <button class="button">{{ 'Show more details'|trans }}</button>
+</li>

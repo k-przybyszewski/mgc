@@ -1,0 +1,150 @@
+{% extends "::layoutAdmin.html.twig" %}
+
+{% block content %}
+<div class="mws-panel grid_4">
+    <div class="mws-panel-header">
+        <span class="mws-i-24 i-list">{{ 'Game'|trans({}, 'admin') }}</span>
+    </div>
+    <div class="mws-panel-body">
+        <form class="mws-form" method="post" {{ form_enctype(form) }} novalidate>
+            <div class="mws-form-inline">
+                {% if form_errors(form) %}
+                    <div class="mws-form-message error">
+                        {{ form_errors(form) }}
+                    </div>
+                {% endif %}
+                <div class="mws-form-row">
+                    {{ form_label(form.name) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.name, {'attr': {'class': 'mws-textinput'}}) }}
+                        {% if form_errors(form.name) %}
+	                        <div class="mws-error">
+	                            {{ form_errors(form.name) }}
+	                        </div>
+	                    {% endif %}
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    {{ form_label(form.categories) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.categories, {'attr': {'class': 'mws-textinput chosen-select'}}) }}
+                        {% if form_errors(form.categories) %}
+	                        <div class="mws-error">
+	                            {{ form_errors(form.categories) }}
+	                        </div>
+	                    {% endif %}
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    {{ form_label(form.slotPrices) }}
+                    {{ form_errors(form.slotPrices) }}
+                    <a href="#" class="new-price fright">{{ 'Add new price'|trans({}, 'admin') }}</a>
+                    <div class="slot-price-holder" data-prototype="{{ _self.slot_price_prototype(form.slotPrices)|escape }}">
+                        {% if form.slotPrices|length > 0 %}
+                            <div class="mws-form-item small hidden" id="no-slot-price">
+                                <span class="red">{{ 'There is no slot prices!'|trans({}, 'admin') }}</span>
+                            </div>
+                            {% for row in form.slotPrices %}
+                                {{ _self.slot_price_prototype(row) }}
+                            {% endfor %}
+                        {% else %}
+                            <div class="mws-form-item small" id="no-slot-price">
+                                <span class="red">{{ 'There is no slot prices!'|trans({}, 'admin') }}</span>
+                            </div>
+                            {{ form_widget(form.slotPrices) }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    {{ form_label(form.icon.file) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.icon.file, {'attr': {'class': 'mws-textinput'}}) }}
+						{% if form_errors(form.icon.file) %}
+    						<div class="mws-error">
+    						    {{ form_errors(form.icon.file) }}
+    						</div>
+						{% endif %}
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    {{ form_label(form.isPopular) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.isPopular) }}
+                    </div>
+                </div>
+                <div class="mws-form-row hidden banner-row">
+                    {{ form_label(form.banner.file) }}
+                    <div class="mws-form-item small">
+                        {{ form_widget(form.banner.file, {'attr': {'class': 'mws-textinput'}}) }}
+						{% if form_errors(form.banner.file) %}
+    						<div class="mws-error">
+    						    {{ form_errors(form.banner.file) }}
+    						</div>
+						{% endif %}
+                    </div>
+                </div>
+	            {{ form_rest(form) }}
+	            <div class="mws-button-row">
+	                <a href="{{ path('admin_game_list') }}" class="mws-button gray">{{ 'Cancel'|trans }}</a>
+	            	<input type="submit" value="Save" class="mws-button red">
+	            </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if game and (game.icon or game.banner) %}
+	<div class="mws-panel grid_4">
+	    <div class="mws-panel-header">
+	        <span class="mws-i-24 i-list">{{ 'Game files'|trans({}, 'admin') }}</span>
+	    </div>
+	    <div class="mws-panel-body">
+	       <table class="gameFiles">
+	           {% if game.icon %}
+	           <tr>
+	               <td>{{ 'Icon'|trans }}</td>
+	               <td><img class="icon" src="{{ asset(game.icon) }}"/></td>
+	               <td>
+	                   <div class="mws-button-row">
+    	                   <a href="{{ path('admin_game_remove_icon', {'icon': game.icon.id}) }}" class="mws-button red">{{ 'Delete'|trans }}</a>
+	                   </div>
+	               </td>
+	               
+	           </tr>
+	           {% endif %}
+	           {% if game.banner %}
+	           <tr>
+	               <td>{{ 'Popular banner'|trans }}</td>
+	               <td><img src="{{ asset(game.banner) }}"/></td>
+	               <td>
+	                   <div class="mws-button-row">
+    	                   <a href="{{ path('admin_game_remove_banner', {'banner': game.banner.id}) }}" class="mws-button red">{{ 'Delete'|trans }}</a>
+	                   </div>
+	               </td>
+	           </tr>
+	           {% endif %}
+	       </table>
+	    </div>
+	</div>
+{% endif %}
+{% endblock %}
+
+{% macro slot_price_prototype(widget) %}
+    {% if widget.vars.prototype is defined %}
+        {% set form = widget.vars.prototype %}
+        {% set name = widget.vars.name %}
+    {% else %}
+        {% set form = widget %}
+        {% set name = widget.vars.full_name %}
+    {% endif %}
+    <div class="mws-form-item small">
+        {{ form_widget(form.server, {'attr': {'class': 'chosen-select'}}) }} {{ form_widget(form.price, {'attr': {'class': 'mws-textinput price-input'}}) }} &euro;
+        <a href="#" class="mws-button red small fright remove-slot-price">{{ 'Remove'|trans({}, 'admin') }}</a>
+        {% if form_errors(form.price) or form_errors(form.server) %}
+            <div class="mws-error">
+                {{ form_errors(form.price) }}
+                {{ form_errors(form.server) }}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

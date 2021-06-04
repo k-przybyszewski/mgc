@@ -1,0 +1,15 @@
+{% extends '::layoutClient.html.twig' %}
+
+{% block subtitle %}{% endblock %}
+
+{% block subpage %}
+    {{ 'Client Dashboard'|trans }}
+{% endblock %}
+
+{% block breadcrumb %}
+    <li>{{ 'Dashboard'|trans }}</li>
+{% endblock %}
+
+{% block content %}
+<a href="{{ path('client_logout') }}">Logout</a>
+{% endblock %}

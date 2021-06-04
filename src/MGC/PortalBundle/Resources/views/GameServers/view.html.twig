@@ -1,0 +1,34 @@
+{% extends '::layout.html.twig' %}
+
+{% block subpage %}
+    {{ 'Game servers'|trans }}
+{% endblock %}
+
+{% block subtitle %}
+    <div class="subtitle">
+        <h1>{{ 'Most popular games'|trans }}</h1>
+    </div>
+{% endblock %}
+
+{% block breadcrumb %}
+    <li>{{ 'Game servers'|trans }}</li>
+{% endblock %}
+
+{% block underheader %}
+    {% for popular in populars %}
+        {{ render(controller('MGCPortalBundle:GameServers:renderOne', {'game': popular, 'template': 'box'})) }}
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="title">{{ 'All available <span class="demi">games</span>'|trans|raw }}</div>
+    {% if games.nbResults == 0 %}
+        <div>{{ 'There is no records at this moment'|trans }}</div>
+    {% else %}
+        {{ render(controller('MGCPortalBundle:GameServers:render', {'games': games, 'form': form})) }}
+        <div class="clearfix"></div>
+        {% if games.haveToPaginate  %}
+            {{ pagerfanta(games, 'twitter_bootstrap_translated') }}
+        {% endif %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+.project
+.settings/*
+.buildpath
+/web/bundles/
+/app/cache/*
+/app/logs/*
+/app/sessions/*
+/app/swift_spool/*
+/app/config/parameters.yml
+/vendor/
+/web/upload/*
+/web/uploads/*
+/web/.htaccess
+/nbproject/
+*.*~

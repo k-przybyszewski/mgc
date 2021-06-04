@@ -1,0 +1,49 @@
+{% extends '::layout.html.twig' %}
+
+{% block breadcrumb %}
+    <li>Contact</li>
+{% endblock %}
+
+{% block subpage %}
+    Contact form
+{% endblock %}
+
+{% block subtitle %}{% endblock %}
+
+{% block content %}
+    <section>
+        <form method="post" novalidate>
+            <fieldset>
+                <div class="form-row">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                    {{ form_errors(form.name) }}
+                </div>
+                <div class="form-row">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                    {{ form_errors(form.email) }}
+                </div>
+                <div class="form-row">
+                    {{ form_label(form.subject) }}
+                    {{ form_widget(form.subject) }}
+                    {{ form_errors(form.subject) }}
+                </div>
+                <div class="form-row">
+                    {{ form_label(form.message) }}
+                    {{ form_widget(form.message) }}
+                    {{ form_errors(form.message) }}
+                </div>
+                <div class="form-row">
+                    {{ form_label(form.captcha) }}
+                    {{ form_widget(form.captcha) }}
+                    {{ form_errors(form.captcha) }}
+                </div>
+            </fieldset>
+            <fieldset class="form-footer">
+                <input type="submit" class="gray-button fright" value="{{ form.submit.vars.label }}">
+            </fieldset>
+            {{ form_row(form._token) }}
+        </form>
+    </section>
+{% endblock %}

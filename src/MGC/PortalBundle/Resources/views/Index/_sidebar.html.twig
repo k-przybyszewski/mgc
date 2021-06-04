@@ -1,0 +1,29 @@
+<div class="sidebar">
+    <div class="panel">
+        <div class="title">{% trans %}Why <span class="demi">we?</span>{% endtrans %}</div>
+        <div class="content">
+            {% include 'MGCPortalBundle:Index:_whyWe.html.twig' with {'page': true} %}
+            <a href="">{{ 'See what else we can offer'|trans }} &rarr;</a>
+            <div class="bannersWrapper">
+	            <div class="sidebarBanner teamspeakBackground">
+	                <a href="" class="btn">{{ 'Order now'|trans }}</a>
+	            </div>
+	            <div class="sidebarBanner ventriloBackground">
+	                <a href="" class="btn">{{ 'Order now'|trans }}</a>
+	            </div>
+	        </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="title">{{ 'Most often selected <span class="demi">servers</span>'|trans|raw }}</div>
+        <div class="content">
+            content
+        </div>
+    </div>
+    <div class="panel">
+        <div class="title">{{ 'Find <span class="demi">us</span>'|trans|raw }}!</div>
+        <div class="content">
+            {% include 'MGCPortalBundle:Index:_facebook.html.twig' %}
+        </div>
+    </div>
+</div>

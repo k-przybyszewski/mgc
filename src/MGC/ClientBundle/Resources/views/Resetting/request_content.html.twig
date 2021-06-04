@@ -1,0 +1,31 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('client_resetting_send_email') }}" method="POST" novalidate>
+    {% if invalid_username is defined and app.request.getMethod == 'POST' %}
+        <section class="error">
+            {{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}
+        </section>
+    {% endif %}
+    {% if alreadyRequested is defined %}
+        <section class="error">
+            {{ 'The password for user: <strong>%email%</strong> has already been requested within the last 24 hours.'|trans({'%email%': alreadyRequested})|raw }}
+        </section>
+    {% endif %}
+    {% if checkEmail is defined %}
+        <section class="success">
+            {{ 'An email has been sent to <strong>%email%</strong>. It contains a link you must click to reset your password.'|trans({'%email%': checkEmail})|raw }}
+        </section>
+    {% endif %}
+     <section>
+        <fieldset>
+            <div class="form-row">
+                <label for="username">{{ 'Email address'|trans }}: <span class="star red"> *</span></label>
+                <input type="text" id="username" name="username" required="required" />
+            </div>
+        </fieldset>
+        <fieldset  class="form-footer">
+            <a href="{{ path('client_home') }}">&larr; {{ 'Go back'|trans }}</a>
+            <input type="submit" class="gray-button fright" value="{{ 'resetting.request.submit'|trans }}" />
+        </fieldset>
+    </section>
+</form>

@@ -1,0 +1,20 @@
+<tr>
+    <td class="icon">
+        {% if game.icon %}
+            <img src="{{ asset(game.icon.webPath) }}">
+        {% endif %}
+    </td>
+    <td class="name">{{ game.name }}</td>
+    <td class="price">
+        {% if not game.bestPrice %}
+            <span class="red">{{ 'Not available at this moment'|trans }}</span>
+        {% else %}
+            {{ game.bestPrice | currency_convert_format(app.session.get('_currency', 'EUR')) }}/slot
+        {% endif %}
+    </td>
+    <td width="100">
+        {% if game.bestPrice > 0 %}
+            <a href="" class="gray-button fright">{{ 'Order'|trans }} &rarr;</a>
+        {% endif %}
+    </td>
+</tr>

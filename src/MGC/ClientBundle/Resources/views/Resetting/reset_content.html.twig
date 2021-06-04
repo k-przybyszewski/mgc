@@ -1,0 +1,25 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('client_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" novalidate>
+    {% if form_errors(form.plainPassword.first) %}
+        <section class="error">
+            {{ form_errors(form.plainPassword.first) }}
+        </section>
+    {% endif %}
+    <section>
+        <fieldset>
+	        <div class="form-row">
+	            {{ form_label(form.plainPassword.first) }}
+	            {{ form_widget(form.plainPassword.first) }}
+	        </div>
+	        <div class="form-row">
+	            {{ form_label(form.plainPassword.second) }}
+	            {{ form_widget(form.plainPassword.second) }}
+	        </div>
+        </fieldset>
+        <fieldset class="form-footer">
+            <input type="submit" class="gray-button fright" value="{{ 'resetting.reset.submit'|trans }}" />
+        </fieldset>
+    </section>
+    {{ form_rest(form) }}
+</form>
